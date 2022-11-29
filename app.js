@@ -5,8 +5,9 @@ import { connectionRoute } from "./src/modules/routes.js";
 
 const app = express();
 const PORT = 5000;
+
 app.use(cors());
 getAllData();
-app.use(express.json());
+app.use(express.json()); //Json Parser
 app.use(connectionRoute);
 app.listen(PORT, () => console.log(`Server is working on port:${PORT}`));

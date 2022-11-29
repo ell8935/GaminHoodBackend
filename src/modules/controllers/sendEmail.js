@@ -5,7 +5,7 @@ const sendEmail = async (req, res, next) => {
     const data = req.body;
     sendEmailHandler(data.email, data.body);
 
-    return res.status(200).json("its sent:" + { data });
+    return res.status(200).json("Its sent:" + { data });
   } catch (err) {
     return next(err);
   }

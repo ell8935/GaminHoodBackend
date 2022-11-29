@@ -1,6 +1,5 @@
 import puppeteer from "puppeteer";
-// import dateConverter from "./dateConverter.js";
-//const parent_node = await child_node.getProperty('parentNode')
+
 const getDataEpicGames = async () => {
   const browser = await puppeteer.launch({ headless: false });
 
@@ -11,9 +10,6 @@ const getDataEpicGames = async () => {
   await page.waitForTimeout(3000);
   try {
     const freeGamesSelector = ".css-1myhtyb";
-    const isFreeSelector = "#offer-title-info-subtitle";
-    const titleSelector = "direction-auto";
-
     await page.waitForSelector(freeGamesSelector);
 
     const data = await page.evaluate(() => {
@@ -42,8 +38,10 @@ const getDataEpicGames = async () => {
           });
         }
       });
+
       return freeGamesArray;
     });
+
     return data;
   } catch (err) {
     console.log(err);

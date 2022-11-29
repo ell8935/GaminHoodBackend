@@ -19,6 +19,7 @@ const getDataSteam = async () => {
       games.push({ name, date, link, image, dlc: true, platform: "steam" });
     } catch (err) {}
   }
+
   return games;
 };
 
