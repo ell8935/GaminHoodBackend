@@ -1,8 +1,9 @@
 import express from "express";
-import getData from "./controllers/getData.js";
+import { getData, sendEmail } from "./controllers/index.js";
 
 const connectionRoute = express.Router();
 
 connectionRoute.get("/getData", getData);
+connectionRoute.post("/sendEmail", sendEmail);
 
 export { connectionRoute };

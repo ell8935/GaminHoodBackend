@@ -1,6 +1,5 @@
 import axios from "axios";
 import { load } from "cheerio";
-import formatDate from "./formatDate.js";
 
 const getGameExpireDateSteam = async (link) => {
   const res = await axios.get(link);
@@ -10,8 +9,9 @@ const getGameExpireDateSteam = async (link) => {
       .text()
       .split("before")[1]
       .split(".")[0];
-    formatDate(date);
-    return date;
+    const formatDate = "Free Now -" + date;
+
+    return formatDate;
   } catch (err) {
     return;
   }

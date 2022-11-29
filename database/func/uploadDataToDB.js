@@ -5,10 +5,10 @@ import dropTable from "./dropTable.js";
 const uploadDataToDB = (data) => {
   // console.log(data);
   // dropTable();
-  deleteTable();
+  // deleteTable();
 
   DB.run(
-    `create table if not exists game(Name text NOT NULL UNIQUE,Date text,Link text,DLC integer,img text,platform text)`
+    `create table if not exists game(Name text NOT NULL UNIQUE,Date text,Link text,DLC integer,Image text,Platform text)`
   );
 
   data.forEach(({ name, date, link, dlc, image, platform }) => {
