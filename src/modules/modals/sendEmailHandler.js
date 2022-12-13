@@ -4,8 +4,8 @@ const sendEmailHandler = (email, body) => {
   const transporter = nodemailer.createTransport({
     service: "hotmail",
     auth: {
-      user: "orlyteam@outlook.com",
-      pass: "Ovadia8935",
+      user: process.env.emailUserId,
+      pass: process.env.emailPassword,
     },
   });
 
