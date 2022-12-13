@@ -1,4 +1,4 @@
-import puppeteer from "puppeteer";
+import puppeteer from "puppeteer-core";
 
 const getDataEpicGames = async () => {
   const browser = await puppeteer.launch({ headless: false });
