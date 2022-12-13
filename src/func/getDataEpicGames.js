@@ -1,7 +1,11 @@
 import puppeteer from "puppeteer-core";
+import { executablePath } from "puppeteer";
 
 const getDataEpicGames = async () => {
-  const browser = await puppeteer.launch({ headless: false });
+  const browser = await puppeteer.launch({
+    headless: false,
+    executablePath: executablePath(),
+  });
 
   const page = await browser.newPage();
   page.setViewport({ width: 0, height: 0 });
