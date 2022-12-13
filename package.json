@@ -8,6 +8,7 @@
     "start": "nodemon app.js"
   },
   "dependencies": {
+    "@sparticuz/chromium": "^108.0.3",
     "axios": "^0.27.2",
     "cheerio": "^1.0.0-rc.11",
     "cors": "^2.8.5",
