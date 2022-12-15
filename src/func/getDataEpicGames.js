@@ -2,8 +2,9 @@ import puppeteer from "puppeteer-core";
 
 const getDataEpicGames = async () => {
   const browser = await puppeteer.launch({
-    headless: false,
-    executablePath: "./node_modules/chromium/lib/chromium/chrome-win/chrome",
+    headless: true,
+    // executablePath: "./node_modules/chromium/lib/chromium/chrome-win/chrome",
+    args: ["--no-sandbox"],
   });
 
   const page = await browser.newPage();
