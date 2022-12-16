@@ -4,7 +4,7 @@ const getAllDataInterval = () => {
   getAllData();
   const minutes = 60 * 60 * 1000;
   setInterval(() => {
-    fetchGames();
+    getAllDataInterval();
   }, minutes);
 };
 
