@@ -2,6 +2,7 @@ import puppeteer from "puppeteer";
 
 const getDataEpicGames = async () => {
   const browser = await puppeteer.launch({
+    headless: true,
     args: ["--no-sandbox"],
   });
 

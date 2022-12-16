@@ -5,13 +5,12 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "nodemon app.js",
+    "build": "yarn && yarn build"
   },
   "dependencies": {
-    "@sparticuz/chromium": "^108.0.3",
     "axios": "^0.27.2",
     "cheerio": "^1.0.0-rc.11",
-    "chromium": "^3.0.3",
     "cors": "^2.8.5",
     "express": "4.17.1",
     "moment": "^2.29.4",
