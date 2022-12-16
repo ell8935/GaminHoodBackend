@@ -4,7 +4,7 @@ const getDataEpicGames = async () => {
   const browser = await puppeteer.launch({
     headless: true,
     executablePath: "./node_modules/chromium/lib/chromium/chrome-win/chrome",
-    args: ["--no-sandbox", "--disable-setuid-sandbox"],
+    args: ["--no-sandbox"],
   });
 
   const page = await browser.newPage();
