@@ -1,8 +1,9 @@
-import puppeteer from "puppeteer";
+import puppeteer from "puppeteer-core";
 
 const getDataEpicGames = async () => {
   const browser = await puppeteer.launch({
-    headless: true,
+    headless: false,
+    executablePath: "./node_modules/chromium/lib/chromium/chrome-win/chrome",
     args: ["--no-sandbox"],
   });
 
