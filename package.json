@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "nodemon app.js",
-    "build": "yarn build"
+    "build": "yarn && node app.js"
   },
   "dependencies": {
     "axios": "^0.27.2",
