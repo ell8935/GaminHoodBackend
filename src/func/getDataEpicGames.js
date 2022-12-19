@@ -1,57 +1,45 @@
-import puppeteer from "puppeteer-core";
-// import chromedriver from "chromedriver";
-import chromium from "chromium";
+import axios from "axios";
 
 const getDataEpicGames = async () => {
-  const browser = await puppeteer.launch({
-    headless: false,
-    executablePath: chromium.path,
-
-    // executablePath: "./node_modules/chromium/lib/chromium/chrome-win/chrome",
-    // args: ["--no-sandbox"],
-  });
-
-  const page = await browser.newPage();
-  page.setViewport({ width: 0, height: 0 });
-  await page.goto("https://www.epicgames.com/store/en-US/free-games");
-
-  await page.waitForTimeout(3000);
   try {
-    const freeGamesSelector = ".css-1myhtyb";
-    await page.waitForSelector(freeGamesSelector);
+    const { data } = await axios.get(
+      "https://store-site-backend-static.ak.epicgames.com/freeGamesPromotions?country=US"
+    );
+    const games = [];
+    const elements = data.data.Catalog.searchStore.elements;
 
-    const data = await page.evaluate(() => {
-      const freeGamesContainer = document.querySelectorAll(".css-shu77l");
-      const freeGamesArray = [];
-      Array.from(freeGamesContainer).forEach((el, i) => {
-        const isFree = el.querySelector("span").innerText;
-        if (isFree.includes("FREE NOW")) {
-          const name = el.querySelector(
-            'div[data-testid="offer-title-info-title"]'
-          ).innerText;
-          const date = el.querySelector(
-            ".css-hkjq8i>[data-testid='offer-title-info-subtitle']"
-          ).innerText;
-          const image = el.querySelector("img").getAttribute("src");
-          const endpoint = el.closest("a").getAttribute("href");
-          const link = `https://store.epicgames.com${endpoint}`;
+    elements.forEach((game) => {
+      const time = game.promotions.promotionalOffers[0]?.promotionalOffers[0];
 
-          freeGamesArray.push({
-            name,
-            date,
-            image,
-            link,
-            dlc: true,
-            platform: "epicGames",
-          });
-        }
-      });
+      if (time) {
+        console.log("2");
+        const link = `https://store.epicgames.com/en-US/p/${game.productSlug}`;
+        const name = game.title;
+        const imageContainer = game.keyImages;
 
-      return freeGamesArray;
+        const date = new Date(time.endDate).toLocaleDateString("en-us", {
+          year: "numeric",
+          month: "short",
+          day: "numeric",
+        });
+        let image;
+        imageContainer.forEach((photo) => {
+          if (photo.type === "DieselStoreFrontWide") {
+            image = photo.url;
+          }
+        });
+
+        games.push({
+          name,
+          date,
+          link,
+          image,
+          dlc: true,
+          platform: "epicgames",
+        });
+      }
     });
-    page.close();
-
-    return data;
+    return games;
   } catch (err) {
     console.log(err);
   }
