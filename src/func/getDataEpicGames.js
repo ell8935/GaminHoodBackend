@@ -12,16 +12,18 @@ const getDataEpicGames = async () => {
       const time = game.promotions.promotionalOffers[0]?.promotionalOffers[0];
 
       if (time) {
-        console.log("2");
         const link = `https://store.epicgames.com/en-US/p/${game.productSlug}`;
         const name = game.title;
         const imageContainer = game.keyImages;
 
-        const date = new Date(time.endDate).toLocaleDateString("en-us", {
-          year: "numeric",
-          month: "short",
-          day: "numeric",
-        });
+        const date =
+          "Free Now - " +
+          new Date(time.endDate).toLocaleDateString("en-us", {
+            year: "numeric",
+            month: "short",
+            day: "numeric",
+          });
+
         let image;
         imageContainer.forEach((photo) => {
           if (photo.type === "DieselStoreFrontWide") {
