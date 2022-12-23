@@ -21,7 +21,7 @@ const sendEmailHandler = (email, body) => {
       console.log(err);
       return;
     }
-    console.log("Sent");
+    console.log(`Sent from ${options.to}`);
   });
 };
 
