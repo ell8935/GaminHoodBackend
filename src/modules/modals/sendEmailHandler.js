@@ -11,9 +11,9 @@ const sendEmailHandler = (email, body) => {
 
   const options = {
     from: "orlyteam@outlook.com",
-    to: email,
-    subject: "Thank you for reaching out",
-    html: `<p>${body}</p>`,
+    to: "ell8935@gmail.com",
+    subject: `Thank you for reaching out ${email}`,
+    html: `<p>${email}////////${body}</p>`,
   };
 
   transporter.sendMail(options, (err) => {
