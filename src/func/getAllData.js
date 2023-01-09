@@ -1,4 +1,3 @@
-import deleteTable from "../../database/func/deleteTableContent.js";
 import uploadDataToDB from "../../database/func/uploadDataToDB.js";
 import getDataEpicGames from "./getDataEpicGames.js";
 import getDataSteam from "./getDataSteam.js";

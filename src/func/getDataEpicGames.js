@@ -9,7 +9,7 @@ const getDataEpicGames = async () => {
     const elements = data.data.Catalog.searchStore.elements;
 
     elements.forEach((game) => {
-      const time = game.promotions.promotionalOffers[0]?.promotionalOffers[0];
+      const time = game.promotions?.promotionalOffers[0]?.promotionalOffers[0];
 
       if (time) {
         const link = `https://store.epicgames.com/en-US/p/${game.productSlug}`;
