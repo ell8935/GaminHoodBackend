@@ -26,7 +26,10 @@ const getDataEpicGames = async () => {
 
         let image;
         imageContainer.forEach((photo) => {
-          if (photo.type === "DieselStoreFrontWide") {
+          if (
+            photo.type === "DieselStoreFrontWide" ||
+            photo.type === "Thumbnail"
+          ) {
             image = photo.url;
           }
         });
