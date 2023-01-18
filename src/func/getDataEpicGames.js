@@ -28,7 +28,7 @@ const getDataEpicGames = async () => {
         imageContainer.forEach((photo) => {
           if (
             photo.type === "DieselStoreFrontWide" ||
-            photo.type === "Thumbnail"
+            photo.type === "OfferImageWide"
           ) {
             image = photo.url;
           }
