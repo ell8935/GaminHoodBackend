@@ -4,10 +4,10 @@ import { getAllDataInterval } from "./src/func/index.js";
 import { connectionRoute } from "./src/modules/routes.js";
 
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
 app.use(cors());
 getAllDataInterval();
 app.use(express.json()); //Json Parser
 app.use(connectionRoute);
-app.listen(5000, () => console.log(`Server is working on port:5000`));
+app.listen(PORT, () => console.log(`Server is working on port:${PORT}`));
