@@ -10,4 +10,4 @@ app.use(cors());
 getAllDataInterval();
 app.use(express.json()); //Json Parser
 app.use(connectionRoute);
-app.listen(PORT, () => console.log(`Server is working on port:${PORT}`));
+app.listen(PORT, () => console.log(`Server is working on port:5000`));
