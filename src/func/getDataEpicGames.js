@@ -12,7 +12,7 @@ const getDataEpicGames = async () => {
       const time = game.promotions?.promotionalOffers[0]?.promotionalOffers[0];
 
       if (time) {
-        const link = `https://store.epicgames.com/en-US/p/${game.productSlug}`;
+        const link = `https://store.epicgames.com/en-US/p/${game.offerMappings[0]?.pageSlug}`;
         const name = game.title;
         const imageContainer = game.keyImages;
 
