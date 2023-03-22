@@ -1,6 +1,6 @@
 import DB from "./connectToDB.js";
-import deleteTable from "./deleteTableContent.js";
 import dropTable from "./dropTable.js";
+import deleteTable from "./deleteTableContent.js";
 
 const uploadDataToDB = (data) => {
   // dropTable();

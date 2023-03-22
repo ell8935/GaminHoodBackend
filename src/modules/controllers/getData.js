@@ -1,6 +1,6 @@
 import { connectToDB } from "../../../database/func/index.js";
 
-const getData = async (req, res, next) => {
+const getData = async (_req, res, next) => {
   try {
     let sql = `SELECT * FROM game `;
     connectToDB.all(sql, (err, rows) => {
