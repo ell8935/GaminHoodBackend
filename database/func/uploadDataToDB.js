@@ -3,17 +3,17 @@ import dropTable from "./dropTable.js";
 import deleteTable from "./deleteTableContent.js";
 
 const uploadDataToDB = (data) => {
-  // dropTable();
-  deleteTable();
+  dropTable();
+  // deleteTable();
 
   DB.run(
-    `create table if not exists game(Name text NOT NULL UNIQUE,Date text,Link text,DLC integer,Image text,Platform text)`
+    `create table if not exists game(Name text NOT NULL UNIQUE,Date text,OriginalPrice integer,Link text,DLC integer,Image text,Platform text)`
   );
 
-  data.forEach(({ name, date, link, dlc, image, platform }) => {
+  data.forEach(({ name, date, price, link, dlc, image, platform }) => {
     try {
       DB.run(
-        `INSERT OR IGNORE INTO game VALUES("${name}","${date}","${link}","${dlc}","${image}","${platform}")`
+        `INSERT OR IGNORE INTO game VALUES("${name}","${date}","${price}","${link}","${dlc}","${image}","${platform}")`
       );
     } catch (error) {
       console.log(error);

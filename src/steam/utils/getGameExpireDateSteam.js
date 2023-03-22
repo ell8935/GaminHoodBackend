@@ -9,7 +9,7 @@ const getGameExpireDateSteam = async (link) => {
       .text()
       .split("before")[1]
       .split(".")[0]
-      .replace("@", "");
+      .replace("@", ",");
     const formatDate = "Free Now -" + date;
 
     return formatDate;

@@ -1,45 +1,34 @@
 import axios from "axios";
+import getDateEpicGames from "./getDateEpicGames.js";
+import getImageEpicGames from "./getImageEpicGames.js";
 
 const getDataEpicGames = async () => {
+  const games = [];
+
   try {
     const { data } = await axios.get(
       "https://store-site-backend-static.ak.epicgames.com/freeGamesPromotions?country=US"
     );
-    const games = [];
     const elements = data.data.Catalog.searchStore.elements;
 
     elements.forEach((game) => {
       const time = game.promotions?.promotionalOffers[0]?.promotionalOffers[0];
-
       if (time) {
         const link = `https://store.epicgames.com/en-US/p/${game.urlSlug}`;
         const name = game.title;
+        const date = getDateEpicGames(time);
         const imageContainer = game.keyImages;
-
-        const date =
-          "Free Now - " +
-          new Date(time.endDate).toLocaleDateString("en-us", {
-            year: "numeric",
-            month: "short",
-            day: "numeric",
-          });
-
-        let image;
-        imageContainer.forEach((photo) => {
-          if (
-            photo.type === "DieselStoreFrontWide" ||
-            photo.type === "OfferImageWide"
-          ) {
-            image = photo.url;
-          }
-        });
+        const image = getImageEpicGames(imageContainer);
+        const dlc = game.offerType === "BASE_GAME" ? false : true;
+        const price = game.price.totalPrice.fmtPrice.originalPrice;
 
         games.push({
           name,
           date,
+          price,
           link,
           image,
-          dlc: true,
+          dlc,
           platform: "epicgames",
         });
       }
