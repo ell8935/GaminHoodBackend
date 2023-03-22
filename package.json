@@ -5,7 +5,7 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "start": "nodemon --inspect app.js",
+    "start": "nodemon app.js",
     "build": "yarn"
   },
   "dependencies": {
