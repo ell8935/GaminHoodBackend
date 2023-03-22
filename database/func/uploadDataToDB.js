@@ -3,7 +3,7 @@ import dropTable from "./dropTable.js";
 import deleteTable from "./deleteTableContent.js";
 
 const uploadDataToDB = (data) => {
-  dropTable();
+  // dropTable();
   // deleteTable();
 
   DB.run(
