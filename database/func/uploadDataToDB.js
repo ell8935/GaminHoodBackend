@@ -3,8 +3,8 @@ import dropTable from "./dropTable.js";
 import deleteTable from "./deleteTableContent.js";
 
 const uploadDataToDB = (data) => {
-  // dropTable();
-  deleteTable();
+  dropTable();
+  // deleteTable();
 
   DB.run(
     `create table if not exists game(Name text NOT NULL UNIQUE,Date text,OriginalPrice text,Link text,DLC integer,Image text,Platform text)`

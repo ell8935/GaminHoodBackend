@@ -9,7 +9,7 @@ const getConversionRate = async (priceInIls) => {
 
   const ilsToUsd = (Number(priceInIls) * Number(conversionRate)).toFixed(2);
 
-  return ilsToUsd;
+  return String(ilsToUsd);
 };
 
 export default getConversionRate;
