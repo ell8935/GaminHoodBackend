@@ -14,7 +14,7 @@ const getDataEpicGames = async () => {
     elements.forEach((game) => {
       const time = game.promotions?.promotionalOffers[0]?.promotionalOffers[0];
       if (time) {
-        const link = `https://store.epicgames.com/en-US/p/${game.urlSlug}`;
+        const link = `https://store.epicgames.com/en-US/p/${game.catalogNs.mappings[0].pageSlug}`;
         const name = game.title;
         const date = getDateEpicGames(time);
         const imageContainer = game.keyImages;
