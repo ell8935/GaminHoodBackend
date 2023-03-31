@@ -4,7 +4,7 @@ import deleteTable from "./deleteTableContent.js";
 
 const uploadDataToDB = (data) => {
   // dropTable();
-  // deleteTable();
+  deleteTable();
 
   DB.run(
     `create table if not exists game(Name text NOT NULL UNIQUE,Date text,OriginalPrice text,Link text,DLC integer,Image text,Platform text)`
