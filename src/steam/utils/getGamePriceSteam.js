@@ -8,11 +8,11 @@ const getGamePriceSteam = async (link) => {
     const $ = load(res.data); // page
     const price = $(".discount_original_price").text();
     const match = price.match(/\d+(\.\d{1,2})?/);
-    const priceNumeric = match ? parseFloat(match[0]) : null;
+    const priceNumeric = match ? parseFloat(match[0]) : 50;
+    console.log(priceNumeric);
+    // const priceUSD = await getConversionRate(priceNumeric);
 
-    const priceUSD = await getConversionRate(priceNumeric);
-
-    return priceUSD;
+    return priceNumeric;
   } catch (err) {
     return;
   }
