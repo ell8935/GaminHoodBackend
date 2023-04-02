@@ -21,6 +21,8 @@ const getDataSteam = async () => {
       const link = $(el).attr("href");
       const name = $(el).find(".title").text();
       const price = `$${await getGamePriceSteam(link)}` || "49.99"; //got only 1500 api calls for conversion
+      console.log(link);
+      console.log(price);
       const date = await getGameExpireDateSteam(link);
       let image = await getGameBetterImageSteam(link);
       if (!image) image = $(el).find("img").attr("src");
