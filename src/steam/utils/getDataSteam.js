@@ -1,8 +1,8 @@
 import axios from "axios";
 import { load } from "cheerio";
-import getGameBetterImageSteam from "./getGameBetterImageSteam.js";
-import getGameExpireDateSteam from "./getGameExpireDateSteam.js";
 import getGamePriceSteam from "./getGamePriceSteam.js";
+import getGameExpireDateSteam from "./getGameExpireDateSteam.js";
+import getGameBetterImageSteam from "./getGameBetterImageSteam.js";
 
 const getDataSteam = async () => {
   const res = await axios.get(
@@ -21,8 +21,6 @@ const getDataSteam = async () => {
       const link = $(el).attr("href");
       const name = $(el).find(".title").text();
       const price = `$${await getGamePriceSteam(link)}` || "49.99"; //got only 1500 api calls for conversion
-      console.log(typeof price);
-
       const date = await getGameExpireDateSteam(link);
       let image = await getGameBetterImageSteam(link);
       if (!image) image = $(el).find("img").attr("src");

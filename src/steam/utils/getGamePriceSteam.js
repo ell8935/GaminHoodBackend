@@ -3,14 +3,14 @@ import { load } from "cheerio";
 import getConversionRate from "../../shared/utils/getConversionRate.js";
 
 const getGamePriceSteam = async (link) => {
-  const res = await axios.get(
-    "https://store.steampowered.com/app/2186310/Clash__Lone_Fighter_Pack/"
-  );
-  const $ = load(res.data); // page
   try {
-    const price = $(".discount_original_price").text().replace("₪", "");
+    const res = await axios.get(link);
+    const $ = load(res.data); // page
+    const price = $(".discount_original_price").text();
+    const match = price.match(/\d+(\.\d{1,2})?/);
+    const priceNumeric = match ? parseFloat(match[0]) : null;
 
-    const priceUSD = await getConversionRate(price);
+    const priceUSD = await getConversionRate(priceNumeric);
 
     return priceUSD;
   } catch (err) {
