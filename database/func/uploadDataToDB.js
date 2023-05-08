@@ -13,7 +13,7 @@ const uploadDataToDB = (data) => {
     try {
       if (price === "0") {
         DB.run(
-          `INSERT OR IGNORE INTO game VALUES("${name}","${date}","${"9.99"}","${link}","${dlc}","${image}","${platform}")`
+          `INSERT OR IGNORE INTO game VALUES("${name}","${date}","${"$9.99"}","${link}","${dlc}","${image}","${platform}")`
         );
       }
       DB.run(
