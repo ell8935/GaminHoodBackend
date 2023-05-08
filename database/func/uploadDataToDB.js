@@ -9,9 +9,13 @@ const uploadDataToDB = (data) => {
   DB.run(
     `create table if not exists game(Name text NOT NULL UNIQUE,Date text,OriginalPrice text,Link text,DLC integer,Image text,Platform text)`
   );
-
   data.forEach(({ name, date, price, link, dlc, image, platform }) => {
     try {
+      if (price === "0") {
+        DB.run(
+          `INSERT OR IGNORE INTO game VALUES("${name}","${date}","${"9.99"}","${link}","${dlc}","${image}","${platform}")`
+        );
+      }
       DB.run(
         `INSERT OR IGNORE INTO game VALUES("${name}","${date}","${price}","${link}","${dlc}","${image}","${platform}")`
       );
