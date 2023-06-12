@@ -11,11 +11,6 @@ const uploadDataToDB = (data) => {
   );
   data.forEach(({ name, date, price, link, dlc, image, platform }) => {
     try {
-      if (price === "0") {
-        DB.run(
-          `INSERT OR IGNORE INTO game VALUES("${name}","${date}","${"$9.99"}","${link}","${dlc}","${image}","${platform}")`
-        );
-      }
       DB.run(
         `INSERT OR IGNORE INTO game VALUES("${name}","${date}","${price}","${link}","${dlc}","${image}","${platform}")`
       );

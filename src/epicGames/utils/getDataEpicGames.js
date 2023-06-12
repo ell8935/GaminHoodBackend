@@ -4,6 +4,7 @@ import getImageEpicGames from "./getImageEpicGames.js";
 
 const getDataEpicGames = async () => {
   const games = [];
+  axios.defaults.headers.Cookie = "HasAcceptedAgeGates=PEGI%3A18";
 
   try {
     const { data } = await axios.get(
@@ -20,7 +21,10 @@ const getDataEpicGames = async () => {
         const imageContainer = game.keyImages;
         const image = getImageEpicGames(imageContainer);
         const dlc = game.offerType === "BASE_GAME" ? false : true;
-        const price = game.price.totalPrice.fmtPrice.originalPrice;
+        const price =
+          game.price.totalPrice.fmtPrice.originalPrice === 0
+            ? game.price.totalPrice.fmtPrice.originalPrice
+            : "$9.99";
 
         games.push({
           name,
