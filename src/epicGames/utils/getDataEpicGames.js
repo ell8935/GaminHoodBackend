@@ -4,8 +4,6 @@ import getImageEpicGames from "./getImageEpicGames.js";
 
 const getDataEpicGames = async () => {
   const games = [];
-  axios.defaults.headers.Cookie = "HasAcceptedAgeGates=PEGI%3A18";
-
   try {
     const { data } = await axios.get(
       "https://store-site-backend-static.ak.epicgames.com/freeGamesPromotions?country=US"
