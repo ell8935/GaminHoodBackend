@@ -14,7 +14,7 @@ const getGameExpireDateSteam = async (link) => {
 
     return formatDate;
   } catch (err) {
-    return;
+    return "Free Now";
   }
 };
 
