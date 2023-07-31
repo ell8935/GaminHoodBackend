@@ -1,6 +1,6 @@
 import getDataSteam from "../../steam/utils/getDataSteam.js";
-import uploadDataToDB from "../../../database/func/uploadDataToDB.js";
 import getDataEpicGames from "../../epicGames/utils/getDataEpicGames.js";
+import { uploadDataToDB } from "../services/realTimeDataBase/RTDBServices.js";
 
 const getAllData = async () => {
   const steam = await getDataSteam();
