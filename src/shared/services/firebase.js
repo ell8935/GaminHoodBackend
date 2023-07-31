@@ -1,10 +1,9 @@
-import { getAuth } from "firebase/auth";
-import { initializeApp } from "firebase/app";
-import { getDatabase } from "firebase/database";
+import admin from "firebase-admin";
 import { firebaseConfig } from "../constants/firebaseConfig.js";
 
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const realTimeDatabase = getDatabase(app);
+admin.initializeApp(firebaseConfig);
 
-export { auth, realTimeDatabase };
+const db = admin.database();
+const ref = db.ref();
+
+export { db, ref };

@@ -1,10 +1,9 @@
-import { ref, set, onValue } from "firebase/database";
-import { realTimeDatabase } from "../../../shared/services/firebase.js";
+import { ref } from "../../../shared/services/firebase.js";
 
 export const uploadDataToDB = (data) => {
   try {
-    set(ref(realTimeDatabase), {
-      games: data,
+    ref.set(data).then(() => {
+      console.log("Data written to the database successfully.");
     });
   } catch (error) {
     console.log(error);
@@ -12,9 +11,12 @@ export const uploadDataToDB = (data) => {
 };
 
 export const getDataFromDB = async () => {
-  let data = [];
-  onValue(ref(realTimeDatabase), (snapshot) => {
-    data = snapshot.val();
-  });
-  return data.games;
+  try {
+    const snapshot = await ref.once("value");
+    const data = snapshot.val();
+    return data;
+  } catch (error) {
+    console.error("Error reading data from database:", error);
+    return null;
+  }
 };
