@@ -1,11 +1,12 @@
 import nodemailer from "nodemailer";
+import "dotenv/config";
 
 const sendEmailHandler = (email, body) => {
   const transporter = nodemailer.createTransport({
     service: "hotmail",
     auth: {
-      user: process.env.emailUserId,
-      pass: process.env.emailPassword,
+      user: process.env.EMAIL_USER_ID,
+      pass: process.env.EMAIL_PASSWORD,
     },
   });
 
