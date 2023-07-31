@@ -1,4 +1,4 @@
-import { ref, set, get, child, onValue } from "firebase/database";
+import { ref, set, onValue } from "firebase/database";
 import { realTimeDatabase } from "../../../shared/services/firebase.js";
 
 export const uploadDataToDB = (data) => {

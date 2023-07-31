@@ -1,8 +1,9 @@
+import "dotenv/config";
 import axios from "axios";
 
 const getConversionRate = async (priceInEuro) => {
   const res = await axios.get(
-    "https://v6.exchangerate-api.com/v6/479f4ff243bc1b4fb919998e/latest/EUR"
+    `https://v6.exchangerate-api.com/v6/${process.env.CONVERSTION_API_KEY}/latest/EUR`
   );
 
   const conversionRate = res.data.conversion_rates.USD;

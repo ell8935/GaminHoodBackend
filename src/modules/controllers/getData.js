@@ -1,6 +1,4 @@
-import { connectToDB } from "../../../database/func/index.js";
 import { getDataFromDB } from "../../shared/services/realTimeDataBase/RTDBServices.js";
-import getAllData from "../../shared/utils/getAllData.js";
 
 const getData = async (_req, res, next) => {
   try {
