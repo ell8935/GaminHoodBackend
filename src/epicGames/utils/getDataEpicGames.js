@@ -21,8 +21,8 @@ const getDataEpicGames = async () => {
         const dlc = game.offerType === "BASE_GAME" ? false : true;
         const price =
           game.price.totalPrice.fmtPrice.originalPrice === 0
-            ? game.price.totalPrice.fmtPrice.originalPrice
-            : "$9.99";
+            ? "$9.99"
+            : game.price.totalPrice.fmtPrice.originalPrice;
 
         games.push({
           name,
