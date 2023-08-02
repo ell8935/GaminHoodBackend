@@ -19,15 +19,16 @@ const getDataEpicGames = async () => {
             : game.productSlug
         }`;
 
+        const price =
+          game.price.totalPrice.fmtPrice.originalPrice === 0
+            ? "$9.99"
+            : game.price.totalPrice.fmtPrice.originalPrice;
+
         const name = game.title;
         const date = getDateEpicGames(time);
         const imageContainer = game.keyImages;
         const image = getImageEpicGames(imageContainer);
         const dlc = game.offerType === "BASE_GAME" ? false : true;
-        const price =
-          game.price.totalPrice.fmtPrice.originalPrice === 0
-            ? "$9.99"
-            : game.price.totalPrice.fmtPrice.originalPrice;
 
         games.push({
           name,
