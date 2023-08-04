@@ -1,7 +1,7 @@
 import cors from "cors";
 import express from "express";
-import { connectionRoute } from "./src/modules/routes.js";
-import getAllDataInterval from "./src/shared/utils/getAllDataInterval.js";
+import connectionRoute from "./src/routes.js";
+import { getAllDataInterval } from "./src/services/getAllData.js";
 
 const app = express();
 const PORT = process.env.PORT || 5000;

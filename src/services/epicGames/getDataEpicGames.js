@@ -2,6 +2,8 @@ import axios from "axios";
 import getDateEpicGames from "./getDateEpicGames.js";
 import getImageEpicGames from "./getImageEpicGames.js";
 
+// Gets the all the data necessary from Epic Games and and returns it
+
 const getDataEpicGames = async () => {
   const games = [];
   try {

@@ -1,4 +1,4 @@
-import { ref } from "../../../shared/services/firebase.js";
+import { ref } from "./firebase.js";
 
 export const uploadDataToDB = (data) => {
   try {

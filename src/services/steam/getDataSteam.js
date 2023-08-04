@@ -4,6 +4,8 @@ import getGamePriceSteam from "./getGamePriceSteam.js";
 import getGameExpireDateSteam from "./getGameExpireDateSteam.js";
 import getGameBetterImageSteam from "./getGameBetterImageSteam.js";
 
+// Gets the all the data necessary from Steam and and returns it
+
 const getDataSteam = async () => {
   const res = await axios.get(
     "https://store.steampowered.com/search/?maxprice=free&category1=21%2C998&specials=1"

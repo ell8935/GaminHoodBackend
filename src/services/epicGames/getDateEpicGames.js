@@ -1,3 +1,5 @@
+//Util to get the date and returns a formatted string
+
 const getDateEpicGames = (time) => {
   const date =
     "Free Now - " +

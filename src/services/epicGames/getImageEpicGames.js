@@ -1,3 +1,6 @@
+//There are few types of images we're getting from the api those are the best quality,
+//Returning image not found if it didnt find any.
+
 const getImageEpicGames = (imageContainer) => {
   const image = imageContainer.find((photo) =>
     ["DieselStoreFrontWide", "OfferImageWide"].includes(photo.type)
